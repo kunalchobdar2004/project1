@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="3style.css">
+     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet"
+
+</head>
+<body>
+  
+<div id="loginPopup" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Login</h2>
+    <form>
+      <label for="username">Username:</label><br>
+      <input type="text" id="username" name="username"><br><br>
+      <label for="password">Password:</label><br>
+      <input type="password" id="password" name="password"><br><br>
+      <input type="submit" value="Login">
+    </form>
+  </div>
+</div>
+
+    <div id="main">
+        <div id="header">
+            <div id="photo">
+                <img src="https://schoollog.in/assets/images/logo-non-outlined.png" alt="">
+
+            </div>
+            
+                <div class="text"><p>Home</p></div>
+                <div class="text"><p>School ERP</p>
+                <i class="ri-arrow-drop-down-line"></i></div>
+                <div class="text"><a href="module.html">Module/Society</a>
+                  
+                <i class="ri-arrow-drop-down-line"></i></div>
+                <div class="text"><a href="whyschool.html">Why schoollog</a></div>
+                <div class="text"><p>About Us</p></div>
+                <div class="text"><p>Partner Us</p></div>
+                <div class="text"><p>More</p></div>
+
+            
+            <div id="button">
+                <p>Login</p>
+                <i class="ri-arrow-drop-down-line"></i>
+
+
+
+            </div>
+
+        </div>
+        <div id="fakeheader"></div>
+        <div id="page1">
+            <img src="project1.in.jpeg" alt="">
+
+        </div>
+       <div id="page2">
+  <div id="heading">
+    <h2>Welcome to SchoolLog: Your Premier School ERP Software</h2>
+  </div>
+
+  <div id="subheading">
+    <h5>Where we bring you the most advanced School Management System under one roof.</h5>
+  </div>
+
+  <div id="textid">
+    <div class="text1">
+      <h4>Is managing a School becoming a headache? Not with the Best School ERP Software.</h4>
+    </div>
+    <div class="text2">
+      <h4>Let us make it simple for you. With the Best School Management System in the Market.</h4>
+    </div>
+  </div>
+  <div id="boxid">
+    <div class="box1">
+        <h2>TRADITIONAL APPROACH</h2>
+
+    </div>
+    <div class="box2">
+        <h2>SCHOOLLOG WAY</h2>
+
+    </div>
+  </div>
+  <div id="imge">
+    <div class="img1">
+        <img src="https://schoollog.in/assets/images/traditional_approach.png" alt="">
+
+    </div>
+    <div class="img1">
+        <img src="https://schoollog.in/assets/images/schoollog_way.png" alt="">
+
+    </div>
+  </div>
+  <div id="about">
+    <div class="aboutit1">
+      <p><span>Streamlined Efficiency :</span> SchoolLog streamlines administrative tasks with its intuitive interface and automation capabilities. From admissions to timetables, tasks that once took hours can now be completed in minutes, freeing up time for more meaningful endeavors.</p>
+
+    </div>
+
+    <div class="aboutit2">
+      <p><span>Manual Processes :</span> In the traditional approach, administrative tasks are often bogged down by cumbersome manual processes. From admissions to attendance, paperwork reigns supreme, consuming valuable time and resources.</p>
+      
+    </div>
+  </div>
+</div>
+    <div id="page3">
+      <div id="title">
+        <h1>Here is How we Do it!</h1>
+      </div>
+      <div id="boxes">
+  <div id="box3" class="box">
+    <div id="feature">
+      <div id="but1">
+        <div class="butn"><p>Grow Student</p></div>
+        <div class="butn"><p>Communication</p></div>
+      </div>
+
+      <div id="but2">
+        <div class="butn"><p>Conduct Assignment</p></div>
+        <div class="butn"><p>Smart Attendance</p></div>
+      </div>
+
+      <div id="but3">
+        <div class="butn"><p>Collect Fee</p></div>
+        <div class="butn"><p>Transport</p></div>
+      </div>
+    </div>
+  </div>
+  <div id="box4" class="box">
+    <img src="https://schoollog.in/assets/images/transport_chart.png" alt="">
+    <img src="https://schoollog.in/assets/images/section_bg.webp" alt="">
+  </div>
+</div>
+
+      </div>
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+    </div>
+    <script>
+  const modal = document.getElementById("loginPopup");
+  const loginBtn = document.getElementById("button");
+  const closeBtn = document.querySelector(".close");
+
+  
+  loginBtn.onclick = function () {
+    modal.style.display = "block";
+  }
+
+  
+  closeBtn.onclick = function () {
+    modal.style.display = "none";
+  }
+
+
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+</script>
+</body>
+</html>

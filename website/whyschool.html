@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Why SchoolLog</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f9ff;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: #004080;
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: #003366;
+    }
+
+    .chart-section {
+      max-width: 800px;
+      margin: 30px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .bar-chart {
+      display: flex;
+      align-items: flex-end;
+      height: 200px;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .bar {
+      width: 14%;
+      background: #4caf50;
+      border-radius: 5px 5px 0 0;
+      text-align: center;
+      color: white;
+      font-size: 14px;
+    }
+
+    .bar span {
+      display: block;
+      margin-top: -25px;
+    }
+
+    .bar-labels {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .pie-chart {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: conic-gradient(
+        #2196f3 0% 30%,
+        #4caf50 30% 55%,
+        #ff9800 55% 75%,
+        #f44336 75% 100%
+      );
+      margin: 30px auto;
+    }
+
+    .theory {
+      max-width: 800px;
+      margin: 30px auto;
+      background: #e6f0ff;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    footer {
+      text-align: center;
+      background: #004080;
+      color: white;
+      padding: 15px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div><strong>SchoolLog</strong></div>
+    <nav>
+      <a href="index.html">Home</a>
+    </nav>
+  </header>
+
+  <h1>Why Choose SchoolLog?</h1>
+
+  <div class="chart-section">
+    <h2>Bar Chart: Feature Usage</h2>
+    <div class="bar-chart">
+      <div class="bar" style="height: 80%;"><span>80%</span></div>
+      <div class="bar" style="height: 60%;"><span>60%</span></div>
+      <div class="bar" style="height: 90%;"><span>90%</span></div>
+      <div class="bar" style="height: 70%;"><span>70%</span></div>
+    </div>
+    <div class="bar-labels">
+      <div>ERP</div>
+      <div>Fees</div>
+      <div>Attendance</div>
+      <div>Transport</div>
+    </div>
+  </div>
+
+  <div class="chart-section">
+    <h2>Pie Chart: SchoolLog Modules</h2>
+    <div class="pie-chart"></div>
+  </div>
+
+  <div class="theory">
+    <h2>How SchoolLog Helps</h2>
+    <p><strong> Easy Management:</strong> From admissions to reports — all under one dashboard.</p>
+    <p><strong> Real-time Communication:</strong> Keep parents and students in the loop with alerts and messages.</p>
+    <p><strong> Saves Time:</strong> Automation of tasks reduces manual work.</p>
+    <p><strong> Data Insights:</strong> Visual reports help make smart decisions quickly.</p>
+  </div>
+
+  <footer>
+    &copy; 2025 SchoolLog | <a href="index.html" style="color: #aaddff;">← Back to Home</a>
+  </footer>
+
+</body>
+</html>
