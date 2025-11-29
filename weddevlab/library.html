@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library – Student Management System</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #4b6cb7, #182848);
+            margin: 0;
+            padding: 0;
+            color: #fff;
+        }
+
+        .container {
+            width: 95%;
+            max-width: 1100px;
+            margin: 50px auto;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        /* Glass Card */
+        .form-box {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            padding: 25px;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+            animation: slideUp 0.8s ease-in-out;
+        }
+
+        .form-box input, .form-box button {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 10px;
+            border: none;
+            font-size: 16px;
+        }
+
+        .form-box input {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .form-box button {
+            background: #00c6ff;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .form-box button:hover {
+            background: #0072ff;
+            transform: scale(1.05);
+        }
+
+        /* Search Bar */
+        #searchBar {
+            width: 100%;
+            padding: 14px;
+            border-radius: 15px;
+            border: none;
+            margin-bottom: 20px;
+            font-size: 17px;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 15px;
+            overflow: hidden;
+            animation: fadeInTable 1s ease-in-out;
+        }
+
+        th {
+            background: #00c6ff;
+            color: white;
+            padding: 14px;
+            font-size: 18px;
+        }
+
+        td {
+            background: white;
+            color: black;
+            padding: 12px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        tr:nth-child(even) td {
+            background: #e8f4ff;
+        }
+
+        tr:hover td {
+            background: #d0e8ff;
+        }
+
+        /* Delete Button */
+        .delete-btn {
+            background: #ff4747;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .delete-btn:hover {
+            background: #cc0000;
+            transform: scale(1.1);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInTable {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>📚 Library Management</h1>
+
+        <input type="text" id="searchBar" placeholder="🔍 Search book by name…">
+
+        <!-- Add Book Form -->
+        <div class="form-box">
+            <h2>Add New Book</h2>
+
+            <input type="text" id="bookName" placeholder="Book Name">
+            <input type="text" id="author" placeholder="Author Name">
+            <input type="date" id="issueDate">
+            <input type="date" id="returnDate">
+
+            <button onclick="addBook()">Add Book</button>
+        </div>
+
+        <!-- Books Table -->
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Book</th>
+                    <th>Author</th>
+                    <th>Issue Date</th>
+                    <th>Return Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody id="tableBody"></tbody>
+        </table>
+    </div>
+
+    <script>
+        let books = JSON.parse(localStorage.getItem("libraryBooks")) || [];
+
+        function displayBooks() {
+            const tbody = document.getElementById("tableBody");
+            tbody.innerHTML = "";
+
+            books
+                .filter(book =>
+                    book.name.toLowerCase().includes(document.getElementById("searchBar").value.toLowerCase())
+                )
+                .forEach((book, index) => {
+                    tbody.innerHTML += `
+                        <tr>
+                            <td>${index + 1}</td>
+                            <td>${book.name}</td>
+                            <td>${book.author}</td>
+                            <td>${book.issue}</td>
+                            <td>${book.returnDate}</td>
+                            <td><button class="delete-btn" onclick="deleteBook(${index})">Delete</button></td>
+                        </tr>
+                    `;
+                });
+        }
+
+        function addBook() {
+            const name = document.getElementById("bookName").value.trim();
+            const author = document.getElementById("author").value.trim();
+            const issue = document.getElementById("issueDate").value;
+            const returnDate = document.getElementById("returnDate").value;
+
+            if (!name || !author || !issue || !returnDate) {
+                alert("Please fill all fields!");
+                return;
+            }
+
+            books.push({ name, author, issue, returnDate });
+            localStorage.setItem("libraryBooks", JSON.stringify(books));
+
+            displayBooks();
+
+            // Clear input
+            document.getElementById("bookName").value = "";
+            document.getElementById("author").value = "";
+            document.getElementById("issueDate").value = "";
+            document.getElementById("returnDate").value = "";
+        }
+
+        function deleteBook(index) {
+            books.splice(index, 1);
+            localStorage.setItem("libraryBooks", JSON.stringify(books));
+            displayBooks();
+        }
+
+        document.getElementById("searchBar").addEventListener("input", displayBooks);
+
+        displayBooks();
+    </script>
+
+</body>
+</html>
