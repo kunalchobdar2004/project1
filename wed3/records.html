@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Record System - SchoolLog Public School</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fa;
+    margin: 0;
+    padding: 0;
+  }
+  header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+  nav {
+    background: #34495e;
+    padding: 10px;
+    text-align: center;
+  }
+  nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+  }
+  nav a:hover {
+    text-decoration: underline;
+  }
+  section {
+    padding: 20px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    font-size: 14px;
+  }
+  th, td {
+    border: 1px solid #999;
+    padding: 8px;
+    text-align: center;
+  }
+  th {
+    background-color: #2980b9;
+    color: white;
+  }
+  h2 {
+    color: #2c3e50;
+  }
+  select {
+    padding: 5px 10px;
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>📚 ABC Public School - Student Record System</h1>
+  <p>Complete Record of Students (UKG - 8th)</p>
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="faculty.html">Faculty</a>
+  <a href="#students">Student Records</a>
+</nav>
+
+<section id="students">
+  <h2>Student Records</h2>
+  <label for="classSelect"><b>Select Class:</b></label>
+  <select id="classSelect">
+    <option value="UKG">UKG</option>
+    <option value="1">1st</option>
+    <option value="2">2nd</option>
+    <option value="3">3rd</option>
+    <option value="4">4th</option>
+    <option value="5">5th</option>
+    <option value="6">6th</option>
+    <option value="7">7th</option>
+    <option value="8">8th</option>
+  </select>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Roll No</th>
+        <th>Name</th>
+        <th>Class</th>
+        <th>Marks (Eng/Math/Sci/Hin)</th>
+        <th>Grade</th>
+        <th>Performance</th>
+        <th>Attendance</th>
+        <th>Skills</th>
+        <th>Monitor/President</th>
+      </tr>
+    </thead>
+    <tbody id="studentTable"></tbody>
+  </table>
+</section>
+
+<script>
+  const firstNames = ["Aarav","Ananya","Rohit","Neha","Amit","Sanya","Rakesh","Priya","Karan","Sneha","Aditi","Deepak","Isha","Arjun","Kavya","Rohit","Manish","Nisha","Pooja","Rajat","Simran","Reyansh","Divya","Ishaan","Riya"];
+  const lastNames = ["Sharma","Gupta","Patel","Singh","Verma","Yadav","Mehta","Joshi","Tiwari","Chauhan","Sinha","Pandey","Agarwal","Kumar","Rani","Chaudhary","Mishra","Thakur","Bansal","Dubey"];
+  const skills = ["Drawing","Dancing","Music","Sports","Art","Craft","Coding","Reading","Leadership","Public Speaking","Debate","Science Projects"];
+  const performances = ["Outstanding","Excellent","Very Good","Good","Average"];
+  const grades = ["A+","A","B+","B","C+","C"];
+  const attendance = ["98%","96%","94%","92%","90%","88%","85%","99%","97%"];
+
+  function randomItem(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
+  }
+
+  function generateStudents(cls) {
+    const students = [];
+    for (let i = 1; i <= 20; i++) {
+      const name = randomItem(firstNames) + " " + randomItem(lastNames);
+      const marks = [
+        Math.floor(60 + Math.random() * 40),
+        Math.floor(60 + Math.random() * 40),
+        Math.floor(60 + Math.random() * 40),
+        Math.floor(60 + Math.random() * 40)
+      ];
+      const grade = randomItem(grades);
+      const perf = randomItem(performances);
+      const att = randomItem(attendance);
+      const skill = randomItem(skills);
+      const leader = (i === 1) ? "Monitor" : (i === 2 ? "President" : "");
+      students.push({roll: i, name, cls, marks, grade, perf, att, skill, leader});
+    }
+    return students;
+  }
+
+  function displayStudents(className) {
+    const tbody = document.getElementById("studentTable");
+    tbody.innerHTML = "";
+    const students = generateStudents(className);
+    students.forEach(s => {
+      let tr = `<tr>
+        <td>${s.roll}</td>
+        <td>${s.name}</td>
+        <td>${s.cls}</td>
+        <td>${s.marks.join('/')}</td>
+        <td>${s.grade}</td>
+        <td>${s.perf}</td>
+        <td>${s.att}</td>
+        <td>${s.skill}</td>
+        <td>${s.leader}</td>
+      </tr>`;
+      tbody.innerHTML += tr;
+    });
+  }
+
+  // Default: UKG
+  displayStudents("UKG");
+
+  document.getElementById("classSelect").addEventListener("change", (e) => {
+    displayStudents(e.target.value);
+  });
+</script>
+
+</body>
+</html>

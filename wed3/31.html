@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="3style.css">
+    <link rel="stylesheet" href="3style2.css">
+
+    <!-- Remix Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+
+<body>
+
+    <!-- LOGIN POPUP -->
+    <div id="loginPopup" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Login</h2>
+            <form>
+                <label for="username">Username:</label><br>
+                <input type="text" id="username" name="username"><br><br>
+
+                <label for="password">Password:</label><br>
+                <input type="password" id="password" name="password"><br><br>
+
+                <input type="submit" value="Login">
+            </form>
+        </div>
+    </div>
+
+    <!-- HEADER SECTION -->
+    <div id="main">
+        <div id="header">
+            <div id="photo">
+                <img src="https://schoollog.in/assets/images/logo-non-outlined.png" alt="">
+            </div>
+
+            <div class="text"><a href="">Home</a></div>
+            <div class="text"><a href="dashboad.html">MYschoolLog</a> <i class="ri-arrow-drop-down-line"></i></div>
+            <div class="text"><a href="module.html">Module/Society</a> <i class="ri-arrow-drop-down-line"></i></div>
+            <div class="text"><a href="whyschool.html">Why schoollog</a></div>
+            <div class="text"><a href="faculty.html">Faculty</a></div>
+            <div class="text"><a href="records.html">Records</a></div>
+            <div class="text"><a href="">More</a></div>
+
+            <div id="button">
+                <p>Login</p>
+                <i class="ri-arrow-drop-down-line"></i>
+            </div>
+        </div>
+
+        <div id="fakeheader"></div>
+
+        <!-- PAGE 1 SECTION -->
+        <div id="page1">
+            <div class="hero-content">
+                <h1>India’s First AI Powered School Management System</h1>
+                <p>Manage your students, results, attendance, and communication all in one intelligent platform.</p>
+
+                <div class="enquiry-box">
+                    <input type="text" id="nameInput" placeholder="Fill enquiry by typing your name">
+                </div>
+
+                <div class="slider-text" id="sliderText">Boost Admissions by 30%</div>
+            </div>
+
+            <div class="hero-image">
+                <img src="YOUR-BASE64-IMAGE-HERE" alt="Hero Image">
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

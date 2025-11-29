@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Dashboard</title>
+
+<style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
+
+    body{display:flex;background:#f0f4fa;}
+
+    /* SIDEBAR */
+    .sidebar{
+        width:220px;height:100vh;background:#0b1a30;color:white;
+        padding:20px;position:fixed;
+    }
+    .sidebar h2{text-align:center;margin-bottom:30px;}
+    .sidebar a{
+        display:block;color:white;text-decoration:none;
+        padding:12px;margin-top:10px;border-radius:5px;
+    }
+    .sidebar a:hover{background:#1f3a60;}
+
+    /* MAIN */
+    .main{
+        margin-left:230px;padding:25px;width:100%;
+    }
+
+    .card{
+        background:white;padding:20px;border-radius:10px;
+        box-shadow:0 0 10px #aaa;margin-bottom:25px;
+    }
+
+    input{
+        padding:10px;border:1px solid #777;border-radius:5px;margin:5px;
+    }
+    button{
+        padding:10px 15px;background:#007bff;border:none;
+        color:white;border-radius:5px;cursor:pointer;margin-top:10px;
+    }
+    table{
+        width:100%;border-collapse:collapse;margin-top:20px;
+    }
+    th,td{
+        padding:10px;border:1px solid #777;text-align:left;
+    }
+</style>
+
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+    <h2>Dashboard</h2>
+    <a href="#info">Student Info</a>
+    <a href="#library">Library</a>
+    <a href="index.html">Logout</a>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main">
+
+    <!-- Student Info -->
+    <div id="info" class="card">
+        <h2>Student Profile</h2>
+        <p><b>Name:</b> Kunal</p>
+        <p><b>Roll No:</b> 024</p>
+        <p><b>Course:</b> BCA</p>
+        <p><b>Year:</b> 2nd Year</p>
+    </div>
+
+    <!-- Library -->
+    <div id="library" class="card">
+        <h2>Library Management</h2>
+
+        <h3>Add Book</h3>
+        <input type="text" id="bookName" placeholder="Book Name">
+        <input type="text" id="author" placeholder="Author">
+        <button onclick="addBook()">Add Book</button>
+
+        <table id="bookTable">
+            <tr>
+                <th>Book</th>
+                <th>Author</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<script>
+    function addBook(){
+        let name = document.getElementById("bookName").value;
+        let author = document.getElementById("author").value;
+
+        if(name === "" || author === ""){
+            alert("Please enter both fields.");
+            return;
+        }
+
+        let table = document.getElementById("bookTable");
+
+        let row = table.insertRow();
+        row.insertCell(0).innerHTML = name;
+        row.insertCell(1).innerHTML = author;
+        row.insertCell(2).innerHTML = "Available";
+
+        let actionCell = row.insertCell(3);
+        actionCell.innerHTML = 
+            `<button onclick="issueBook(this)">Issue</button>
+             <button onclick="deleteBook(this)" style="background:red;margin-left:10px;">Delete</button>`;
+    }
+
+    function issueBook(btn){
+        let row = btn.parentNode.parentNode;
+        row.cells[2].innerHTML = "Issued";
+    }
+
+    function deleteBook(btn){
+        let row = btn.parentNode.parentNode;
+        row.remove();
+    }
+</script>
+
+</body>
+</html>

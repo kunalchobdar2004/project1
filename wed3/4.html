@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Management System</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="4.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header id="header">
+    <div class="logo">
+      <h2>Student Management System</h2>
+    </div>
+
+    <nav class="navbar">
+      <a href="index.html">Home</a>
+      <a href="students.html">Students</a>
+      <a href="classes.html">Classes</a>
+
+      <!-- More (as anchor) -->
+      <div class="dropdown">
+        <a href="#" id="moreLink" class="more-link">More <i class="ri-arrow-down-s-line"></i></a>
+        <div class="dropdown-content" id="dropdownMenu">
+          <a href="curriculum.html">Curriculum</a>
+          <a href="timetable.html">Timetable</a>
+          <a href="updates.html">Updates</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <section class="main">
+    <h1>Welcome to the Student Management System</h1>
+    <p>Click “More” in the navigation to explore additional pages.</p>
+  </section>
+
+  <!-- JavaScript for dropdown -->
+  <script>
+    const moreLink = document.getElementById('moreLink');
+    const dropdownMenu = document.getElementById('dropdownMenu');
+
+    moreLink.addEventListener('click', (e) => {
+      e.preventDefault(); // prevent default link action
+      dropdownMenu.classList.toggle('show');
+    });
+
+    // Close the dropdown when clicking outside
+    window.addEventListener('click', (event) => {
+      if (!event.target.matches('.more-link') && !event.target.closest('.dropdown')) {
+        dropdownMenu.classList.remove('show');
+      }
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Front</title>
+    <style>
+        body { font-family: Arial; background: #f4f4f4; margin: 0; }
+        header { background: #333; color: #fff; padding: 15px; text-align: center; }
+        .products { display: flex; gap: 20px; padding: 20px; }
+        .card {
+            width: 250px;
+            background: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ccc;
+            text-align: center;
+        }
+        button {
+            background: #ff6600;
+            border: none;
+            padding: 10px 20px;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover { background: #e65c00; }
+        a { color: white; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>My Simple E-Commerce</h1>
+    <a href="cart.html">🛒 Cart</a>
+</header>
+
+<div class="products">
+    <div class="card">
+        <h3>Shoes</h3>
+        <p>Price: ₹999</p>
+        <button onclick="addToCart('Shoes', 999)">Add to Cart</button>
+    </div>
+
+    <div class="card">
+        <h3>Watch</h3>
+        <p>Price: ₹499</p>
+        <button onclick="addToCart('Watch', 499)">Add to Cart</button>
+    </div>
+
+    <div class="card">
+        <h3>T-Shirt</h3>
+        <p>Price: ₹299</p>
+        <button onclick="addToCart('T-Shirt', 299)">Add to Cart</button>
+    </div>
+</div>
+
+<script>
+function addToCart(name, price) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.push({ name, price });
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert(name + " added to cart!");
+}
+</script>
+
+</body>
+</html>

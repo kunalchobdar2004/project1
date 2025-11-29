@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="3style.css">
+  <link rel="stylesheet" href="3style2.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <div id="loginPopup" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Login</h2>
+      <form>
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username"><br><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password"><br><br>
+        <input type="submit" value="Login">
+      </form>
+    </div>
+  </div>
+
+  <div id="main">
+    <div id="header">
+      <div id="photo">
+        <img src="https://schoollog.in/assets/images/logo-non-outlined.png" alt="">
+
+      </div>
+
+      <div class="text">
+        <a href="">Home</a>
+      </div>
+      <div class="text">
+        <a href="dashboad.html">MYschoolLog</a>
+        <i class="ri-arrow-drop-down-line"></i>
+      </div>
+      <div class="text"><a href="module.html">Module/Society</a>
+
+        <i class="ri-arrow-drop-down-line"></i>
+      </div>
+      <div class="text"><a href="whyschool.html">Why schoollog</a></div>
+      <div class="text">
+        <a href="faculty.html">Faculty</a>
+      </div>
+      <div class="text">
+        <a href="records.html">Records</a>
+      </div>
+      <div class="text">
+        <a href="library.html">library</a>
+      </div>
+
+
+      <div id="button">
+        <a href="index.html">Login</a>
+        <i class="ri-arrow-drop-down-line"></i>
+
+
+
+      </div>
+
+    </div>
+    <div id="fakeheader"></div>
+    <div id="page1">
+      <div class="hero-content">
+        <h1>India’s First AI Powered School Management System</h1>
+        <p>Manage your students, results, attendance, and communication all in one intelligent platform.</p>
+
+        <div class="enquiry-box">
+          <input type="text" id="nameInput" placeholder="Fill enquiry by typing your name">
+        </div>
+
+        <div class="slider-text" id="sliderText">Boost Admissions by 30%</div>
+      </div>
+
+      <div class="hero-image">
+        <img
+          src="data:image/jpeg;base64,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"
+          alt="Students">
+      </div>
+      </section>
+
+      <!-- WhatsApp Floating Icon -->
+      <a href="https://wa.me/919876543210?text=Hello%20I%20want%20to%20know%20about%20admissions" target="_blank"
+        class="whatsapp">
+        <i class="ri-whatsapp-fill"></i>
+      </a>
+
+
+    </div>
+    <div id="page2">
+      <div id="heading">
+        <h2>Welcome to SchoolLog: Your Premier School ERP Software</h2>
+      </div>
+
+      <div id="subheading">
+        <h5>Where we bring you the most advanced School Management System under one roof.</h5>
+      </div>
+
+      <div id="textid">
+        <div class="text1">
+          <h4>Is managing a School becoming a headache? Not with the Best School ERP Software.</h4>
+        </div>
+        <div class="text2">
+          <h4>Let us make it simple for you. With the Best School Management System in the Market.</h4>
+        </div>
+      </div>
+      <div id="boxid">
+        <div class="box1">
+          <h2>TRADITIONAL APPROACH</h2>
+
+        </div>
+        <div class="box2">
+          <h2>SCHOOLLOG WAY</h2>
+
+        </div>
+      </div>
+      <div id="imge">
+        <div class="img1">
+          <img src="https://schoollog.in/assets/images/traditional_approach.png" alt="">
+
+        </div>
+        <div class="img1">
+          <img src="https://schoollog.in/assets/images/schoollog_way.png" alt="">
+
+        </div>
+      </div>
+      <div id="about">
+        <div class="aboutit1">
+          <p><span>Streamlined Efficiency :</span> SchoolLog streamlines administrative tasks with its intuitive
+            interface and automation capabilities. From admissions to timetables, tasks that once took hours can now be
+            completed in minutes, freeing up time for more meaningful endeavors.</p>
+
+        </div>
+
+        <div class="aboutit2">
+          <p><span>Manual Processes :</span> In the traditional approach, administrative tasks are often bogged down by
+            cumbersome manual processes. From admissions to attendance, paperwork reigns supreme, consuming valuable
+            time and resources.</p>
+
+        </div>
+      </div>
+    </div>
+    <div id="page3">
+      <!-- Your Page 3 Content -->
+
+
+      <!-- Footer -->
+      <div id="footer" style="margin-top: 300px;">
+        <div class="footer-container">
+          <div class="footer-section about">
+            <h2>About System</h2>
+            <p>
+              The Student Management System helps manage student records,
+              attendance, and grades efficiently in one place.
+            </p>
+          </div>
+
+          <div class="footer-section links">
+            <h2>Quick Links</h2>
+            <ul>
+              <li><a href="dashboad.html">Dashboard</a></li>
+              <li><a href="whyschool.html">Students</a></li>
+              <li><a href="#">Classes</a></li>
+              <li><a href="#">Results</a></li>
+              <li><a href="#">Support</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section contact">
+            <h2>Contact Info</h2>
+            <p><i class="ri-map-pin-line"></i> 123 School Road, Mumbai, India</p>
+            <p><i class="ri-phone-line"></i> +91 98765 43210</p>
+            <p><i class="ri-mail-line"></i> support@smsystem.com</p>
+          </div>
+
+          <div class="footer-section social">
+            <h2>Follow Us</h2>
+            <div class="social-icons">
+              <a href="#"><i class="ri-facebook-circle-fill"></i></a>
+              <a href="#"><i class="ri-instagram-fill"></i></a>
+              <a href="#"><i class="ri-twitter-x-line"></i></a>
+              <a href="#"><i class="ri-linkedin-box-fill"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>© 2025 Student Management System | Designed by Kunal</p>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+  </div>
+  <script>
+    
+
+    // Handle login form submission
+    document.getElementById("loginForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      // Demo authentication
+      if (username === "student" && password === "1234") {
+        alert("Login successful!");
+        modal.style.display = "none";
+      } else {
+        alert("Invalid credentials!");
+      }
+    });
+    const texts = [
+      "Boost Admissions by 30%",
+      "Improve Efficiency by 30%",
+      "Energize Communication by 50%"
+    ];
+    let index = 0;
+    const slider = document.getElementById("sliderText");
+
+    setInterval(() => {
+      index = (index + 1) % texts.length;
+      slider.textContent = texts[index];
+      slider.style.animation = "none";
+      void slider.offsetWidth; // reset animation
+      slider.style.animation = "fadeIn 1s ease-in-out";
+    }, 2500);
+
+    // --- Enquiry Box JS ---
+    const nameInput = document.getElementById("nameInput");
+    nameInput.addEventListener("focus", () => {
+      nameInput.placeholder = "Type your full name...";
+    });
+    nameInput.addEventListener("blur", () => {
+      nameInput.placeholder = "Fill enquiry by typing your name";
+    });
+
+  </script>
+</body>
+
+</html>

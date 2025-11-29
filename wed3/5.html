@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Management System</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: #f5f9ff;
+      overflow-x: hidden;
+    }
+
+    /* Hero Section (Page 1) */
+    #page1 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 100px 10%;
+      height: 60vh; /* 60% of the page height */
+      background: linear-gradient(135deg, #007bff, #4facfe);
+      border-bottom-left-radius: 180px;
+      color: white;
+    }
+
+    .hero-content {
+      max-width: 50%;
+    }
+
+    .hero-content h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .hero-content p {
+      font-size: 1rem;
+      margin-bottom: 25px;
+      color: #eaf3ff;
+    }
+
+    .enquiry-box input {
+      padding: 12px 18px;
+      border: none;
+      border-radius: 30px;
+      width: 80%;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    .slider-text {
+      margin-top: 30px;
+      font-size: 1.3rem;
+      font-weight: 600;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-image img {
+      width: 420px;
+      border-radius: 25px;
+      box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.3);
+      transition: transform 0.4s ease;
+    }
+
+    .hero-image img:hover {
+      transform: scale(1.05);
+    }
+
+    /* WhatsApp Floating Icon */
+    .whatsapp {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: #25D366;
+      color: white;
+      font-size: 32px;
+      border-radius: 50%;
+      padding: 14px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+      text-decoration: none;
+      transition: transform 0.3s;
+      z-index: 100;
+    }
+
+    .whatsapp:hover {
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 768px) {
+      #page1 {
+        flex-direction: column;
+        text-align: center;
+        height: auto;
+        padding: 80px 5%;
+      }
+
+      .hero-content {
+        max-width: 100%;
+      }
+
+      .hero-image img {
+        width: 300px;
+        margin-top: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Main Blue Section -->
+  <section id="page1">
+    <div class="hero-content">
+      <h1>India’s First AI Powered School Management System</h1>
+      <p>Manage your students, results, attendance, and communication all in one intelligent platform.</p>
+
+      <div class="enquiry-box">
+        <input type="text" id="nameInput" placeholder="Fill enquiry by typing your name">
+      </div>
+
+      <div class="slider-text" id="sliderText">Boost Admissions by 30%</div>
+    </div>
+
+    <div class="hero-image">
+      <img src="https://cdn.pixabay.com/photo/2017/01/10/19/05/children-1966132_960_720.jpg" alt="Students">
+    </div>
+  </section>
+
+  <!-- WhatsApp Floating Icon -->
+  <a href="https://wa.me/919876543210?text=Hello%20I%20want%20to%20know%20about%20admissions"
+     target="_blank" class="whatsapp">
+    <i class="ri-whatsapp-fill"></i>
+  </a>
+
+  <script>
+    // --- Slider Text JS ---
+    const texts = [
+      "Boost Admissions by 30%",
+      "Improve Efficiency by 30%",
+      "Energize Communication by 50%"
+    ];
+    let index = 0;
+    const slider = document.getElementById("sliderText");
+
+    setInterval(() => {
+      index = (index + 1) % texts.length;
+      slider.textContent = texts[index];
+      slider.style.animation = "none";
+      void slider.offsetWidth; // reset animation
+      slider.style.animation = "fadeIn 1s ease-in-out";
+    }, 2500);
+
+    // --- Enquiry Box JS ---
+    const nameInput = document.getElementById("nameInput");
+    nameInput.addEventListener("focus", () => {
+      nameInput.placeholder = "Type your full name...";
+    });
+    nameInput.addEventListener("blur", () => {
+      nameInput.placeholder = "Fill enquiry by typing your name";
+    });
+  </script>
+
+</body>
+</html>
