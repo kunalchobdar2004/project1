@@ -3,6 +3,14 @@
 A clean, modern, and responsive **Student Management System** inspired by Schoolog, built using **HTML, CSS, and JavaScript**. Designed for smooth navigation and efficient student, library, and dashboard management.
 
 ---
+🧑‍🎓 Student Details
+
+Name: Kunal Chobdar
+College ID: 2024KUEC2012
+Course: Web Development Lab
+Course Code: AIP 211
+Batch: C1
+---
 
 ## 🚀 Live Demo
 
