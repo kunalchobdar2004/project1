@@ -37,8 +37,8 @@ Batch: C1
 
 ## 🛠 Technologies Used
 
-* **HTML5** – Page structure
-* **CSS3** – Styling & UI design
+* **HTML** – Page structure
+* **CSS** – Styling & UI design
 * **JavaScript** – Interactivity & logic
 * **Vercel** – Hosting
 
